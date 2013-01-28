@@ -36,7 +36,6 @@ arrayContainer* readConfig(const char *fName )
 
     while (!feof(fp)) {
         outputChar = malloc(sizeof(char) * __READ_BUF_SIZE);
-
         fgets(outputChar,__READ_BUF_SIZE,fp);
         outputChar[strlen(outputChar) -1 ] = '\0';
         contents->data[count] = malloc(sizeof(char) * strlen(outputChar));
@@ -108,7 +107,7 @@ arrayContainer* getSectionNames(const arrayContainer *inStringList)
 
     outList->data = malloc(sizeof(char *) * outList->size);
 
-    for (int i = 0; i < inStringList->size - 1; i++) {
+    for (int i = 0; i < inStringList->size; i++) {
         if(inStringList->data[i][0] == __SECTION_ID) {
             outList->data[foundCount] = calloc(__READ_BUF_SIZE, sizeof(char) );
             strncpy(outList->data[foundCount],inStringList->data[i] + 1,strlen(inStringList->data[i])-2);

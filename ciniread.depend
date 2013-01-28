@@ -1,10 +1,16 @@
 # depslib dependency file v1.0
-1359347104 source:/home/dev/Documents/ciniread/main.c
+1359351405 source:/home/dev/Documents/ciniread/main.c
 	<stdio.h>
 	<stdlib.h>
 	"libs/resources.h"
 
 1359347104 /home/dev/Documents/ciniread/libs/resources.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1359352554 source:/home/dev/Documents/ciniread/libs/resources.c
+	"resources.h"
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
