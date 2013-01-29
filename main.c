@@ -6,7 +6,7 @@
 int main()
 {
 
-    listCollection *colTest = getIni("testfile.ini");
+    listCollection *colTest = getIni("test2.ini");
 
     printf("\n-----------------------------------------------------------------------\n");
 

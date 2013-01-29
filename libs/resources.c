@@ -237,36 +237,20 @@ void freeList(list *inList)
     for (int i = 0; i < inList->count; i++) {
         free(inList->items[i]->key);
         free(inList->items[i]->val);
-
-        inList->items[i]->key = NULL;
-        inList->items[i]->val = NULL;
-
         free(inList->items[i]);
-        inList->items[i] = NULL;
-
     };
 
     free(inList->items);
-    inList->items = NULL;
-
     free(inList->name);
-//    inList->count = NULL;
-    inList->name = NULL;
-
     free(inList);
-    inList = NULL;
 }
 
 void freeListCollection(listCollection *inCollection)
 {
     for (int i = 0; i < inCollection->count; i++) {
         freeList(inCollection->lists[i]);
-        inCollection->lists[i] = NULL;
     };
 
-    inCollection->lists = NULL;
-//    inCollection->count = NULL;
-
+    free(inCollection->lists);
     free(inCollection);
-    inCollection = NULL;
 }
