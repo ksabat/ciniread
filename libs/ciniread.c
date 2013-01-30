@@ -1,7 +1,8 @@
-#include "resources.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "ciniread.h"
 
 int getLineCount(const char *fName)
 {

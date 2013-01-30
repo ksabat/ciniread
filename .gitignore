@@ -1,4 +1,6 @@
+bin
+obj
 gmon.out
-ciniread.cbp.cbTemp
-ciniread.layout.cbTemp
+*.cbp.cbTemp
+*.layout.cbTemp
 !.gitignore
