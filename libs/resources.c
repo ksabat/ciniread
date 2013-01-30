@@ -12,6 +12,12 @@ int getLineCount(const char *fName)
 
      while (!feof(fp)) {
         fgets(line,__READ_BUF_SIZE,fp);
+        if (strspn(line,__BLANKS_LIST)==strlen(line)) {
+            continue;
+        };
+        if (line[0] == __COMMENT_ID) {
+            continue;
+        };
         lineCount++;
     };
 
@@ -37,6 +43,14 @@ arrayContainer* readConfig(const char *fName )
     while (!feof(fp)) {
         outputChar = malloc(sizeof(char) * __READ_BUF_SIZE);
         fgets(outputChar,__READ_BUF_SIZE,fp);
+        if (strspn(outputChar,__BLANKS_LIST) == strlen(outputChar)) {
+            free(outputChar);
+            continue;
+        }
+        if (outputChar[0] == __COMMENT_ID) {
+            free(outputChar);
+            continue;
+        };
         outputChar[strlen(outputChar) -1 ] = '\0';
         contents->data[count] = malloc(sizeof(char) * strlen(outputChar));
         strcpy(contents->data[count], outputChar);
@@ -166,7 +180,7 @@ arrayContainer* getSection(const char *secName, arrayContainer *rawList)
     return section;
 }
 
-list* createSectionList(arrayContainer *inItems)
+list* createSectionList(const arrayContainer *inItems)
 {
     list *outList = malloc(sizeof (list));
 

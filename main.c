@@ -6,7 +6,7 @@
 int main()
 {
 
-    listCollection *colTest = getIni("test2.ini");
+    listCollection *colTest = getIni("commentfile.ini");
 
     printf("\n-----------------------------------------------------------------------\n");
 
@@ -19,6 +19,5 @@ int main()
     };
 
     freeListCollection(colTest);
-
     return 0;
 }

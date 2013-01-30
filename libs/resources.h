@@ -6,6 +6,8 @@
 #include <string.h>
 
 #define __SECTION_ID '['
+#define __COMMENT_ID '#'
+#define __BLANKS_LIST " \n\t\r\f"
 #define __VALUE_DELIMITOR "="
 #define __READ_BUF_SIZE 256
 
@@ -49,7 +51,7 @@ arrayContainer* getSectionNames(const arrayContainer *);
 arrayContainer* getSection(const char *, arrayContainer *);
 
 //convert an array of strings into a list container with each key being a listItem
-list* createSectionList(arrayContainer*);
+list* createSectionList(const arrayContainer*);
 
 listCollection* getIni(const char*);
 
