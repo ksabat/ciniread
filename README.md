@@ -9,7 +9,11 @@ Depends on C standard libraries.
 Developed on Linux X86_64 using GCC 4.7.2
 
 
-General Information:
+General Information
+===================
+To use the library please include libs/ciniread.h in your source.
+Otherwise follow the appropriate steps for your environment.
+
 # Indicates a comment.  Comments must be on their own line and the 
 # character has to be the first character on the line itself.
 Comments are skipped when reading the file.
