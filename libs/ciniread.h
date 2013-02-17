@@ -32,6 +32,10 @@ typedef struct listCollection {
     list **lists;
 } listCollection;
 
+//trims leading and trailing blank chars from strings as defined by __BLANKS_LIST.  May behave
+//strangly if passed a string that cannot be freed by free due undefined behaviour.
+char* allTrim(char*);
+
 //count the lines in the ini file
 int getLineCount(const char*);
 

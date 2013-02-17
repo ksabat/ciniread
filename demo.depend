@@ -1,17 +1,17 @@
 # depslib dependency file v1.0
-1359505152 source:/home/dev/Documents/ciniread/main.c
+1361068918 source:/home/dev/Documents/ciniread/main.c
 	<stdio.h>
 	<stdlib.h>
 	"libs/ciniread.h"
 
-1359504923 /home/dev/Documents/ciniread/libs/ciniread.h
+1361068771 /home/dev/Documents/ciniread/libs/ciniread.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 
-1359505093 source:/home/dev/Documents/ciniread/libs/ciniread.c
-	"ciniread.h"
+1361069028 source:/home/dev/Documents/ciniread/libs/ciniread.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	"ciniread.h"
 

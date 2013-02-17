@@ -2,12 +2,12 @@
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
 	<File name="libs/ciniread.c" open="1" top="0" tabpos="2">
-		<Cursor position="60" topLine="0" />
+		<Cursor position="824" topLine="0" />
 	</File>
-	<File name="libs/ciniread.h" open="1" top="0" tabpos="3">
-		<Cursor position="204" topLine="0" />
+	<File name="libs/ciniread.h" open="1" top="1" tabpos="3">
+		<Cursor position="878" topLine="15" />
 	</File>
-	<File name="main.c" open="1" top="1" tabpos="1">
-		<Cursor position="64" topLine="0" />
+	<File name="main.c" open="1" top="0" tabpos="1">
+		<Cursor position="83" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

@@ -4,6 +4,43 @@
 
 #include "ciniread.h"
 
+char* allTrim(char *inString)
+{
+    int length = strlen(inString);
+    int begCount = strspn(inString,__BLANKS_LIST);
+    int endCount = 0;
+    int endCondition = 0;
+
+    int tempCount = length-1;
+
+    while(endCondition != 1) {
+        switch(inString[tempCount]) {
+            case '\n':
+            case '\t':
+            case '\r':
+            case '\f':
+            case ' ' : {
+                    endCount++;
+                    tempCount--;
+                    break;
+                };
+            default: {
+                    endCondition = 1;
+                };
+        };
+    };
+
+    char *tempString = calloc(length-(begCount+endCount),sizeof(char));
+
+    strncpy(tempString,inString+(begCount),length-(begCount+endCount));
+
+    free(inString);
+
+    tempString[length-(begCount+endCount)] = '\0';
+
+    return tempString;
+}
+
 int getLineCount(const char *fName)
 {
     char line[__READ_BUF_SIZE];
@@ -52,7 +89,8 @@ arrayContainer* readConfig(const char *fName )
             free(outputChar);
             continue;
         };
-        outputChar[strlen(outputChar) -1 ] = '\0';
+ //       outputChar[strlen(outputChar) -1 ] = '\0';
+        outputChar = allTrim(outputChar);
         contents->data[count] = malloc(sizeof(char) * strlen(outputChar));
         strcpy(contents->data[count], outputChar);
         count++;
