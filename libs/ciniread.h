@@ -9,7 +9,7 @@
 #define __COMMENT_ID '#'
 #define __BLANKS_LIST " \n\t\r\f"
 #define __VALUE_DELIMITOR "="
-#define __READ_BUF_SIZE 256
+#define __READ_BUF_SIZE (1024)
 
 typedef struct arrayContainer {
     int size;

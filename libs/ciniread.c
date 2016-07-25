@@ -48,8 +48,7 @@ int getLineCount(const char *fName)
 
     FILE *fp = fopen(fName,"r");
 
-     while (!feof(fp)) {
-        fgets(line,__READ_BUF_SIZE,fp);
+     while (fgets(line,__READ_BUF_SIZE,fp) != NULL) {
         if (strspn(line,__BLANKS_LIST)==strlen(line)) {
             continue;
         };
@@ -69,8 +68,9 @@ arrayContainer* readConfig(const char *fName )
 
     arrayContainer *contents;
     char *outputChar;
-
     int count = 0;
+
+    int valid = 1;
 
     contents = malloc(sizeof(arrayContainer *));
     contents->size = getLineCount(fName);
@@ -78,26 +78,30 @@ arrayContainer* readConfig(const char *fName )
 
     FILE *fp = fopen(fName,"r");
 
-    while (!feof(fp)) {
+    while (valid != 0) {
         outputChar = malloc(sizeof(char) * __READ_BUF_SIZE);
-        fgets(outputChar,__READ_BUF_SIZE,fp);
+
+        if (fgets(outputChar,__READ_BUF_SIZE,fp) == NULL) {
+            valid = 0;
+            free(outputChar);
+            continue;
+        };
         if (strspn(outputChar,__BLANKS_LIST) == strlen(outputChar)) {
             free(outputChar);
             continue;
-        }
+        };
         if (outputChar[0] == __COMMENT_ID) {
             free(outputChar);
             continue;
         };
- //       outputChar[strlen(outputChar) -1 ] = '\0';
+
         outputChar = allTrim(outputChar);
         contents->data[count] = malloc(sizeof(char) * strlen(outputChar));
         strcpy(contents->data[count], outputChar);
-        count++;
 
         free(outputChar);
+        count++;
     };
-
 
     fclose(fp);
 
